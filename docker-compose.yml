@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: arbitrage-trading
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./data:/app/data
+    networks:
+      - arbitrage-network
+
+networks:
+  arbitrage-network:
+    driver: bridge 

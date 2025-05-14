@@ -1,0 +1,107 @@
+/* Global dark theme styles */
+:root {
+  --background: #0f1218;
+  --foreground: #e6e6e6;
+  --primary: #3366ff;
+  --primary-light: #5c85ff;
+  --primary-dark: #2952cc;
+  --secondary: #f759ab;
+  --success: #52c41a;
+  --warning: #faad14;
+  --danger: #f5222d;
+  --border-color: rgba(80, 160, 255, 0.3);
+  --card-bg: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(80, 160, 255, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 160, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 160, 255, 0.5);
+}
+
+/* 图表容器样式 */
+.chart-container {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+}
+
+/* 数据卡片样式 */
+.dashboard-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dashboard-card-header {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.dashboard-card-body {
+  padding: 12px;
+}
+
+/* 闪光边框效果 */
+.glow-border {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+  box-shadow: 0 0 15px rgba(80, 160, 255, 0.15);
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, rgba(80, 160, 255, 0.5), transparent, rgba(80, 160, 255, 0.5));
+  border-radius: 8px;
+  z-index: -1;
+  animation: glow 3s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 
